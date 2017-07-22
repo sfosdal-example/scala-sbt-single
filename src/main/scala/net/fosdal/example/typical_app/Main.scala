@@ -13,7 +13,7 @@ object Main extends App with LazyLogging {
   Metrics(config.monitoring)
 
   val greeter = Greeter(config.greeting)
-  val msg = greeter.greet(config.name)
+  val msg = greeter(config.name)
 
   while (true) {
     Metrics.timer(greetDuration) {
