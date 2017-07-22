@@ -31,7 +31,7 @@ libraryDependencies ++= Seq(
 //
 // Plugin Settings: sbt-assembly
 //
-mainClass in assembly := Some("net.fosdal.example.typical_app.Main")
+mainClass in assembly := Some("Main")
 
 test in assembly := {}
 
