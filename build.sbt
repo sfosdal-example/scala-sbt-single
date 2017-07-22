@@ -1,4 +1,4 @@
-name := "greeter"
+name := "typical_app"
 
 organization := "net.fosdal.example"
 
@@ -31,7 +31,7 @@ libraryDependencies ++= Seq(
 //
 // Plugin Settings: sbt-assembly
 //
-mainClass in assembly := Some("net.fosdal.example.greeter.Main")
+mainClass in assembly := Some("net.fosdal.example.typical_app.Main")
 
 test in assembly := {}
 
@@ -51,7 +51,7 @@ assemblyMergeStrategy in assembly := {
 //
 // BuildInfo Plugin Settings
 //
-buildInfoPackage := "net.fosdal.example.greeter"
+buildInfoPackage := "net.fosdal.example.typical_app"
 
 buildInfoKeys := Seq[BuildInfoKey](
   organization,
@@ -72,7 +72,7 @@ buildInfoKeys := Seq[BuildInfoKey](
   scalacOptions in (Compile, compile),
   BuildInfoKey.action("appName")(name.value),
   BuildInfoKey.action("packageName")(organization.value),
-  BuildInfoKey.action("configBase")("net.fosdal.example.greeter")
+  BuildInfoKey.action("configBase")("net.fosdal.example.typical_app")
 )
 
 buildInfoOptions ++= Seq(BuildInfoOption.BuildTime, BuildInfoOption.ToJson, BuildInfoOption.ToMap)

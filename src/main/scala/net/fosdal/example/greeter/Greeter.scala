@@ -1,4 +1,4 @@
-package net.fosdal.example.greeter
+package net.fosdal.example.typical_app
 
 case class Greeter(greeting: String) {
 

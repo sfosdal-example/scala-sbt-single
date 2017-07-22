@@ -1,8 +1,8 @@
-package net.fosdal.example.greeter.configuration
+package net.fosdal.example.typical_app.configuration
 
 import com.typesafe.config.{ConfigFactory, ConfigRenderOptions}
 import com.typesafe.scalalogging.LazyLogging
-import net.fosdal.example.greeter.BuildInfo
+import net.fosdal.example.typical_app.BuildInfo
 import pureconfig.syntax._
 
 import scala.concurrent.duration.FiniteDuration

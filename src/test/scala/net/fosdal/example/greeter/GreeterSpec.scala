@@ -1,4 +1,4 @@
-package net.fosdal.example.greeter
+package net.fosdal.example.typical_app
 
 import org.scalatest.{Matchers, WordSpec}
 

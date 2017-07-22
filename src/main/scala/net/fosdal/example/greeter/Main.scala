@@ -1,9 +1,9 @@
-package net.fosdal.example.greeter
+package net.fosdal.example.typical_app
 
 import com.typesafe.scalalogging.LazyLogging
-import net.fosdal.example.greeter.configuration.Configuration._
-import net.fosdal.example.greeter.metrics.Metrics
-import net.fosdal.example.greeter.metrics.Metrics._
+import net.fosdal.example.typical_app.configuration.Configuration._
+import net.fosdal.example.typical_app.metrics.Metrics
+import net.fosdal.example.typical_app.metrics.Metrics._
 
 object Main extends App with LazyLogging {
 
