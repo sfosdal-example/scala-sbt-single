@@ -1,10 +1,10 @@
-package net.fosdal.example.greeter.metrics
+package net.fosdal.example.app.metrics
 
 import java.lang.management.ManagementFactory
 
 import com.codahale.metrics._
 import com.codahale.metrics.jvm._
-import net.fosdal.example.greeter.configuration.Configuration.MonitoringConfig
+import net.fosdal.example.app.configuration.Configuration.MonitoringConfig
 import org.coursera.metrics.datadog.DatadogReporter
 import org.coursera.metrics.datadog.transport.UdpTransport
 import org.slf4j.LoggerFactory

@@ -1,9 +1,9 @@
-package net.fosdal.example.greeter
+package net.fosdal.example.app
 
 import com.typesafe.scalalogging.LazyLogging
-import net.fosdal.example.greeter.configuration.Configuration._
-import net.fosdal.example.greeter.metrics.Metrics
-import net.fosdal.example.greeter.metrics.Metrics._
+import net.fosdal.example.app.configuration.Configuration._
+import net.fosdal.example.app.metrics.Metrics
+import net.fosdal.example.app.metrics.Metrics._
 
 object Main extends App with LazyLogging {
 
@@ -13,7 +13,7 @@ object Main extends App with LazyLogging {
   Metrics(config.monitoring)
 
   val greeter = Greeter(config.greeting)
-  val msg = greeter.greet(config.name)
+  val msg = greeter(config.name)
 
   while (true) {
     Metrics.timer(greetDuration) {
