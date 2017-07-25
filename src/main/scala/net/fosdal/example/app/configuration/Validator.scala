@@ -1,7 +1,7 @@
-package net.fosdal.example.typical_app.configuration
+package net.fosdal.example.app.configuration
 
 import com.typesafe.scalalogging.LazyLogging
-import net.fosdal.example.typical_app.configuration.Configuration.Config
+import net.fosdal.example.app.configuration.Configuration.Config
 
 object Validator extends LazyLogging {
 

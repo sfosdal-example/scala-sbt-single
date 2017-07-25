@@ -1,4 +1,4 @@
-name := "typical_app"
+name := "app"
 
 organization := "net.fosdal.example"
 
@@ -10,7 +10,7 @@ fork := true
 
 libraryDependencies ++= Seq(
   "com.github.pureconfig"      %% "pureconfig"                  % "0.7.2",
-  "com.typesafe.scala-logging" %% "scala-logging"               % "3.5.0",
+  "com.typesafe.scala-logging" %% "scala-logging"               % "3.7.2",
   "io.dropwizard.metrics"      % "metrics-core"                 % "3.2.3",
   "io.dropwizard.metrics"      % "metrics-healthchecks"         % "3.2.3",
   "io.dropwizard.metrics"      % "metrics-jvm"                  % "3.2.3",
@@ -37,7 +37,7 @@ test in assembly := {}
 
 assemblyMergeStrategy in assembly := {
   case "reference.conf" => MergeStrategy.concat
-  case PathList("META-INF", xs @ _ *) =>
+  case PathList("META-INF", xs @ _*) =>
     xs.map(_.toLowerCase) match {
       case ("manifest.mf" :: Nil) | ("index.list" :: Nil) | ("dependencies" :: Nil) =>
         MergeStrategy.discard
@@ -51,7 +51,7 @@ assemblyMergeStrategy in assembly := {
 //
 // BuildInfo Plugin Settings
 //
-buildInfoPackage := "net.fosdal.example.typical_app"
+buildInfoPackage := "net.fosdal.example.app"
 
 buildInfoKeys := Seq[BuildInfoKey](
   organization,
@@ -72,7 +72,7 @@ buildInfoKeys := Seq[BuildInfoKey](
   scalacOptions in (Compile, compile),
   BuildInfoKey.action("appName")(name.value),
   BuildInfoKey.action("packageName")(organization.value),
-  BuildInfoKey.action("configBase")("net.fosdal.example.typical_app")
+  BuildInfoKey.action("configBase")("net.fosdal.example.app")
 )
 
 buildInfoOptions ++= Seq(BuildInfoOption.BuildTime, BuildInfoOption.ToJson, BuildInfoOption.ToMap)
@@ -101,10 +101,10 @@ coverageEnabled := true
 //
 // Compiler Settings
 //
-// format: off
 scalacOptions ++= Seq(
   "-deprecation",
-  "-encoding", "UTF-8",
+  "-encoding",
+  "UTF-8",
   "-feature",
   "-unchecked",
   "-Xfatal-warnings",
