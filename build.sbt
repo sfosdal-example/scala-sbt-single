@@ -9,22 +9,22 @@ enablePlugins(BuildInfoPlugin)
 fork := true
 
 libraryDependencies ++= Seq(
-  "com.github.pureconfig"      %% "pureconfig"                  % "0.7.2",
+  "com.github.pureconfig"      %% "pureconfig"                  % "0.8.0",
   "com.typesafe.scala-logging" %% "scala-logging"               % "3.7.2",
-  "io.dropwizard.metrics"      % "metrics-core"                 % "3.2.3",
-  "io.dropwizard.metrics"      % "metrics-healthchecks"         % "3.2.3",
-  "io.dropwizard.metrics"      % "metrics-jvm"                  % "3.2.3",
-  "io.dropwizard.metrics"      % "metrics-log4j2"               % "3.2.3",
+  "io.dropwizard.metrics"      % "metrics-core"                 % "3.2.4",
+  "io.dropwizard.metrics"      % "metrics-healthchecks"         % "3.2.4",
+  "io.dropwizard.metrics"      % "metrics-jvm"                  % "3.2.4",
+  "io.dropwizard.metrics"      % "metrics-log4j2"               % "3.2.4",
   "joda-time"                  % "joda-time"                    % "2.9.9",
-  "org.apache.logging.log4j"   % "log4j-1.2-api"                % "2.8.2",
-  "org.apache.logging.log4j"   % "log4j-api"                    % "2.8.2",
-  "org.apache.logging.log4j"   % "log4j-core"                   % "2.8.2",
-  "org.apache.logging.log4j"   % "log4j-slf4j-impl"             % "2.8.2",
+  "org.apache.logging.log4j"   % "log4j-1.2-api"                % "2.9.0",
+  "org.apache.logging.log4j"   % "log4j-api"                    % "2.9.0",
+  "org.apache.logging.log4j"   % "log4j-core"                   % "2.9.0",
+  "org.apache.logging.log4j"   % "log4j-slf4j-impl"             % "2.9.0",
   "org.coursera"               % "metrics-datadog"              % "1.1.13",
-  "org.joda"                   % "joda-convert"                 % "1.8.2",
+  "org.joda"                   % "joda-convert"                 % "1.8.3",
   "org.scalacheck"             %% "scalacheck"                  % "1.13.5" % Test,
   "org.scalamock"              %% "scalamock-scalatest-support" % "3.6.0" % Test,
-  "org.scalatest"              %% "scalatest"                   % "3.0.3" % Test,
+  "org.scalatest"              %% "scalatest"                   % "3.0.4" % Test,
   "org.slf4j"                  % "slf4j-api"                    % "1.7.25"
 )
 
@@ -90,21 +90,11 @@ scalastyleFailOnError := true
 (scalastyleConfig in Test) := baseDirectory.value / "scalastyle-test-config.xml"
 
 //
-// Plugin Settings: sbt-scoverage
-//
-coverageMinimum := 0
-
-coverageFailOnMinimum := true
-
-coverageEnabled := true
-
-//
 // Compiler Settings
 //
 scalacOptions ++= Seq(
   "-deprecation",
-  "-encoding",
-  "UTF-8",
+  "-encoding", "UTF-8",
   "-feature",
   "-unchecked",
   "-Xfatal-warnings",
