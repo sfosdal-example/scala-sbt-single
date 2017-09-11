@@ -94,8 +94,7 @@ scalastyleFailOnError := true
 //
 scalacOptions ++= Seq(
   "-deprecation",
-  "-encoding",
-  "UTF-8",
+  "-encoding", "UTF-8",
   "-feature",
   "-unchecked",
   "-Xfatal-warnings",
