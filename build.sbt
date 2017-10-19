@@ -1,4 +1,4 @@
-name := "app"
+name := "scala-sbt-app"
 
 organization := "net.fosdal.example"
 
@@ -11,17 +11,16 @@ fork := true
 libraryDependencies ++= Seq(
   "com.github.pureconfig"      %% "pureconfig"                  % "0.8.0",
   "com.typesafe.scala-logging" %% "scala-logging"               % "3.7.2",
-  "io.dropwizard.metrics"      % "metrics-core"                 % "3.2.4",
-  "io.dropwizard.metrics"      % "metrics-healthchecks"         % "3.2.4",
-  "io.dropwizard.metrics"      % "metrics-jvm"                  % "3.2.4",
-  "io.dropwizard.metrics"      % "metrics-log4j2"               % "3.2.4",
+  "io.dropwizard.metrics"      % "metrics-core"                 % "3.2.5",
+  "io.dropwizard.metrics"      % "metrics-healthchecks"         % "3.2.5",
+  "io.dropwizard.metrics"      % "metrics-jvm"                  % "3.2.5",
+  "io.dropwizard.metrics"      % "metrics-log4j2"               % "3.2.5",
   "joda-time"                  % "joda-time"                    % "2.9.9",
-  "org.apache.logging.log4j"   % "log4j-1.2-api"                % "2.9.0",
-  "org.apache.logging.log4j"   % "log4j-api"                    % "2.9.0",
-  "org.apache.logging.log4j"   % "log4j-core"                   % "2.9.0",
-  "org.apache.logging.log4j"   % "log4j-slf4j-impl"             % "2.9.0",
+  "org.apache.logging.log4j"   % "log4j-api"                    % "2.9.1",
+  "org.apache.logging.log4j"   % "log4j-core"                   % "2.9.1",
+  "org.apache.logging.log4j"   % "log4j-slf4j-impl"             % "2.9.1",
   "org.coursera"               % "metrics-datadog"              % "1.1.13",
-  "org.joda"                   % "joda-convert"                 % "1.8.3",
+  "org.joda"                   % "joda-convert"                 % "1.9.2",
   "org.scalacheck"             %% "scalacheck"                  % "1.13.5" % Test,
   "org.scalamock"              %% "scalamock-scalatest-support" % "3.6.0" % Test,
   "org.scalatest"              %% "scalatest"                   % "3.0.4" % Test,
@@ -51,7 +50,7 @@ assemblyMergeStrategy in assembly := {
 //
 // BuildInfo Plugin Settings
 //
-buildInfoPackage := "net.fosdal.example.app"
+buildInfoPackage := Seq(organization.value, safe(name.value)).mkString(".")
 
 buildInfoKeys := Seq[BuildInfoKey](
   organization,
@@ -70,9 +69,7 @@ buildInfoKeys := Seq[BuildInfoKey](
   resolvers,
   libraryDependencies,
   scalacOptions in (Compile, compile),
-  BuildInfoKey.action("appName")(name.value),
-  BuildInfoKey.action("packageName")(organization.value),
-  BuildInfoKey.action("configBase")("net.fosdal.example.app")
+  BuildInfoKey.action("configBase")(buildInfoPackage.value)
 )
 
 buildInfoOptions ++= Seq(BuildInfoOption.BuildTime, BuildInfoOption.ToJson, BuildInfoOption.ToMap)
@@ -106,3 +103,5 @@ scalacOptions ++= Seq(
   "-Ywarn-unused",
   "-Ywarn-value-discard"
 )
+
+def safe(s: String): String = s.replaceAll("[^a-zA-Z0-9]", "_").replaceAll("^[0-9]*", "")

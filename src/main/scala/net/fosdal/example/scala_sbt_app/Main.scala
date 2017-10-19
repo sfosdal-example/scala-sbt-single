@@ -1,9 +1,9 @@
-package net.fosdal.example.app
+package net.fosdal.example.scala_sbt_app
 
 import com.typesafe.scalalogging.LazyLogging
-import net.fosdal.example.app.configuration.Configuration._
-import net.fosdal.example.app.metrics.Metrics
-import net.fosdal.example.app.metrics.Metrics._
+import net.fosdal.example.scala_sbt_app.configuration.Configuration._
+import net.fosdal.example.scala_sbt_app.metrics.Metrics
+import net.fosdal.example.scala_sbt_app.metrics.Metrics._
 
 object Main extends App with LazyLogging {
 

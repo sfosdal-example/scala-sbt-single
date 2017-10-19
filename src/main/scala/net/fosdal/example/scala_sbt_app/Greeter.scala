@@ -1,4 +1,4 @@
-package net.fosdal.example.app
+package net.fosdal.example.scala_sbt_app
 
 case class Greeter(greeting: String) {
 

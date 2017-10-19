@@ -1,10 +1,10 @@
-package net.fosdal.example.app.metrics
+package net.fosdal.example.scala_sbt_app.metrics
 
 import java.lang.management.ManagementFactory
 
 import com.codahale.metrics._
 import com.codahale.metrics.jvm._
-import net.fosdal.example.app.configuration.Configuration.MonitoringConfig
+import net.fosdal.example.scala_sbt_app.configuration.Configuration.MonitoringConfig
 import org.coursera.metrics.datadog.DatadogReporter
 import org.coursera.metrics.datadog.transport.UdpTransport
 import org.slf4j.LoggerFactory
@@ -21,8 +21,10 @@ trait Metrics {
 
   private[this] val metricsRegistry = SharedMetricRegistries.setDefault("shared-metrics-registry")
 
-  def registerMeter(name: String): Meter         = metricsRegistry.meter(name)
-  def registerTimer(name: String): Timer         = metricsRegistry.timer(name)
+  def registerMeter(name: String): Meter = metricsRegistry.meter(name)
+
+  def registerTimer(name: String): Timer = metricsRegistry.timer(name)
+
   def registerHistogram(name: String): Histogram = metricsRegistry.histogram(name)
 
   def registerGauge[A](name: String, value: => A): Gauge[A] = {
