@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+sbt clean compile "run $@"
+#java -jar target/scala-2.11/app-1.0-SNAPSHOT.jar

@@ -3,10 +3,9 @@ package net.fosdal.example.scala_sbt_app.metrics
 import java.lang.management.ManagementFactory
 
 import com.codahale.metrics._
+import com.codahale.metrics.jmx.JmxReporter
 import com.codahale.metrics.jvm._
-import net.fosdal.example.scala_sbt_app.configuration.Configuration.MonitoringConfig
-import org.coursera.metrics.datadog.DatadogReporter
-import org.coursera.metrics.datadog.transport.UdpTransport
+import net.fosdal.example.scala_sbt_app.Config.MonitoringConfig
 import org.slf4j.LoggerFactory
 
 import scala.collection.JavaConverters._
@@ -71,16 +70,6 @@ trait Metrics {
         .outputTo(LoggerFactory.getLogger(config.log.logger))
         .build
         .start(config.log.interval.toNanos, NANOSECONDS)
-    }
-    if (config.datadog.enabled) {
-      DatadogReporter
-        .forRegistry(metricsRegistry)
-        .withHost(config.datadog.host)
-        .withPrefix(config.datadog.prefix)
-        .withTags(config.datadog.tags.asJava)
-        .withTransport(new UdpTransport.Builder().build())
-        .build()
-        .start(config.datadog.interval.toNanos, NANOSECONDS)
     }
   }
 

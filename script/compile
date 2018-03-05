@@ -4,6 +4,4 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-script/test
-
-sbt -no-colors assembly
+sbt clean compile
