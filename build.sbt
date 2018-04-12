@@ -2,27 +2,27 @@ name := "scala-sbt-app"
 
 organization := "net.fosdal.example"
 
-scalaVersion := "2.12.4"
+scalaVersion := "2.12.5"
 
 fork := true
 
 libraryDependencies ++= {
-  lazy val Log4JVersion   = "2.10.0"
-  lazy val MetricsVersion = "4.0.2"
+  lazy val log4JVersion   = "2.11.0"
+  lazy val metricsVersion = "4.0.2"
   Seq(
-    "com.github.pureconfig"      %% "pureconfig"                  % "0.9.0",
+    "com.github.pureconfig"      %% "pureconfig"                  % "0.9.1",
     "com.github.melrief"         %% "purecsv"                     % "0.1.1",
-    "com.typesafe.scala-logging" %% "scala-logging"               % "3.8.0",
-    "io.dropwizard.metrics"      % "metrics-core"                 % MetricsVersion,
-    "io.dropwizard.metrics"      % "metrics-healthchecks"         % MetricsVersion,
-    "io.dropwizard.metrics"      % "metrics-jmx"                  % MetricsVersion,
-    "io.dropwizard.metrics"      % "metrics-jvm"                  % MetricsVersion,
-    "io.dropwizard.metrics"      % "metrics-log4j2"               % MetricsVersion,
+    "com.typesafe.scala-logging" %% "scala-logging"               % "3.9.0",
+    "io.dropwizard.metrics"      % "metrics-core"                 % metricsVersion,
+    "io.dropwizard.metrics"      % "metrics-healthchecks"         % metricsVersion,
+    "io.dropwizard.metrics"      % "metrics-jmx"                  % metricsVersion,
+    "io.dropwizard.metrics"      % "metrics-jvm"                  % metricsVersion,
+    "io.dropwizard.metrics"      % "metrics-log4j2"               % metricsVersion,
     "joda-time"                  % "joda-time"                    % "2.9.9",
-    "org.apache.logging.log4j"   % "log4j-api"                    % Log4JVersion,
-    "org.apache.logging.log4j"   % "log4j-core"                   % Log4JVersion,
-    "org.apache.logging.log4j"   % "log4j-slf4j-impl"             % Log4JVersion,
-    "org.joda"                   % "joda-convert"                 % "2.0",
+    "org.apache.logging.log4j"   % "log4j-api"                    % log4JVersion,
+    "org.apache.logging.log4j"   % "log4j-core"                   % log4JVersion,
+    "org.apache.logging.log4j"   % "log4j-slf4j-impl"             % log4JVersion,
+    "org.joda"                   % "joda-convert"                 % "2.0.1",
     "org.scalacheck"             %% "scalacheck"                  % "1.13.5" % Test,
     "org.scalamock"              %% "scalamock-scalatest-support" % "3.6.0" % Test,
     "org.scalatest"              %% "scalatest"                   % "3.0.5" % Test,
@@ -32,8 +32,7 @@ libraryDependencies ++= {
 
 scalacOptions ++= Seq(
   "-deprecation",
-  "-encoding",
-  "UTF-8",
+  "-encoding", "UTF-8",
   "-feature",
   "-unchecked",
   "-Xfatal-warnings",
@@ -78,7 +77,7 @@ buildInfoKeys := BuildInfoKey.ofN(
 // Plugin Settings: sbt-scoverage
 //
 coverageExcludedPackages := """.*\.BuildInfo"""
-coverageMinimum := 4
+coverageMinimum := 0
 coverageFailOnMinimum := true
 
 //
@@ -108,3 +107,8 @@ assemblyMergeStrategy in assembly := {
 // Plugin Settings: sbt-git
 //
 enablePlugins(GitBranchPrompt)
+
+//
+// Plugin Settings: sbt-jmh
+//
+enablePlugins(JmhPlugin)
